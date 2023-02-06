@@ -25,7 +25,7 @@ jobs:
           node-version: 18
       - run: cd mashup && npm install && npm run lint
 
-  test:
+  unittest:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -38,3 +38,19 @@ jobs:
         with:
           node-version: 18
       - run: cd unittesting && npm install && npm test
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ 18 ]
+    name: Unit Testing
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: cd combined && npm audit
+      - run: cd combined && npm install && npm run lint
+      - run: cd combined && npm install && npm test
