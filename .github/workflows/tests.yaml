@@ -3,7 +3,7 @@ on: [push]
 jobs:
   audit:
     runs-on: ubuntu-latest
-      name: Insecure audit.
+    name: Insecure audit.
     steps:
       - uses: actions/checkout@v3
       - name: Setup node
