@@ -1,17 +1,26 @@
 name: Insecure Test
 on: [push]
 jobs:
-  build:
+  audit:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [ 18 ]
-    name: Node ${{ matrix.node }} all tests
+      name: Insecure audit.
     steps:
       - uses: actions/checkout@v3
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 18
       - run: cd insecure && npm audit
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ 18 ]
+    name: Mashup lint.
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
       - run: cd mashup && npm run lint
