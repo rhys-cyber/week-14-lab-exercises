@@ -13,10 +13,4 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-      - run: npm ci
-      - run: npm test
-
-  test-insecure-libs:
-    steps:
-      - run: cd insecure && npm audit 
-
+      - run: cd insecure && npm audit
