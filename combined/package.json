@@ -1,0 +1,22 @@
+{
+  "name": "Combined",
+  "version": "1.0.0",
+  "description": "Node project with linting errors",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "node_modules/.bin/eslint . --ext .js "
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "keywords": [],
+  "author": "Jujhar@jujhar.com",
+  "license": "MIT",
+  "dependencies": {
+    "eslint": "^8.33.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-semistandard": "^17.0.0",
+    "jest": "^29.4.1"
+  }
+}
