@@ -44,7 +44,7 @@ jobs:
     strategy:
       matrix:
         node: [ 18 ]
-    name: Unit Testing
+    name: Combined Testing
     steps:
       - uses: actions/checkout@v3
       - name: Setup node
