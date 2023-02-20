@@ -12,8 +12,8 @@ const generateHelloString = (language = "english") => {
     case "french":
       return "Bonjour";
     default:
-      throw RangeError(`Unknown language ${language}`);
+      throw RangeError("Unknown language " + language);
   }
-}
+};
 
-module.exports={generateHelloString}
+module.exports={generateHelloString};
