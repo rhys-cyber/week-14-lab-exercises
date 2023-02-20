@@ -9,7 +9,7 @@ jobs:
      - name: Install jq tool
        run: |
           git clone https://github.com/awslabs/git-secrets /opt/git-secrets
-          cd /opt/git-secrets && make install
+          cd /opt/git-secrets && sudo make install
   audit:
     runs-on: ubuntu-latest
     name: Insecure audit.
