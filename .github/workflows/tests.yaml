@@ -1,6 +1,17 @@
 name: Insecure Test
 on: [push]
 jobs:
+ build:
+  runs-on: ubuntu-latest
+   steps:
+     - name: Check out repository code
+      uses: actions/checkout@v3
+     - name: Install jq tool
+      run: |
+          sudo apt-get update
+          sudo apt-get install git
+          git clone https://github.com/awslabs/git-secrets
+          cd git-secrets && make install
   audit:
     runs-on: ubuntu-latest
     name: Insecure audit.
@@ -54,3 +65,6 @@ jobs:
       - run: cd combined && npm audit
       - run: cd combined && npm install && npm run lint
       - run: cd combined && npm install && npm test
+      - run: git secrets --scan-history
+      
+
